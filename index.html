@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Cursed Minesweeper</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Noto Sans" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <div id="overlay"></div>
+        <canvas id="canvas" width=0 height=0></canvas><br/>
+        <button onclick="newGame()">New Game</button><br/>
+        <form autocomplete="off"><table>
+        <tr><td>Size:</td><td><input type="range" min="16" max="48" value="16" id="size" /></td></tr>
+        <tr><td>Color Scheme:</td><td>
+            <table id="colorscheme">
+                <tr>
+                    <td><label for="cwin">Win</label></td>
+                    <td><input type="color" id="cwin" value="#00ff00" /></td>
+                </tr><tr>
+                    <td><label for="cgameOver">Game Over</label></td>
+                    <td><input type="color" id="cgameOver" value="#ff0000" /></td>
+                </tr><tr>
+                    <td><label for="chover">Hover</label></td>
+                    <td><input type="color" id="chover" value="#0080ff" /></td>
+                </tr><tr>
+                    <td><label for="cneighbor">Neighbor</label></td>
+                    <td><input type="color" id="cneighbor" value="#00ff00" /></td>
+                </tr><tr>
+                    <td><label for="csidebar">Sidebar</label></td>
+                    <td><input type="color" id="csidebar" value="#888888" /></td>
+                </tr><tr>
+                    <td><label for="csidebartext">Sidebar Text</label></td>
+                    <td><input type="color" id="csidebartext" value="#ffffff" /></td>
+                </tr><tr>
+                    <td><label for="opacity">Opacity:</label></td>
+                    <td><input type="range" id="popacity" min="0" max="100" value="25" /></td>
+                </tr><tr>
+                    <td><button type="button" onclick="resetColorScheme()">Reset</button></td>
+                    <td></td>
+                </tr>
+            </table>
+        </td></tr>
+        <tr><td>Width:</td><td><input type="number" id="width" value=20 /></td></tr>
+        <tr><td>Height:</td><td><input type="number" id="height" value=20 /></td></tr>
+        <tr><td>Single Mines:</td><td><input type="number" id="mines1" value=60 /></td></tr>
+        <tr><td>Double Mines:</td><td><input type="number" id="mines2" value=0 /></td></tr>
+        <tr><td>Triple Mines:</td><td><input type="number" id="mines3" value=0 /></td></tr>
+        <tr><td>Quadruple Mines:</td><td><input type="number" id="mines4" value=0 /></td></tr>
+        <tr><td>Single Anti-Mines:</td><td><input type="number" id="amines1" value=0 /></td></tr>
+        <tr><td>Double Anti-Mines:</td><td><input type="number" id="amines2" value=0 /></td></tr>
+        <tr><td>Triple Anti-Mines:</td><td><input type="number" id="amines3" value=0 /></td></tr>
+        <tr><td>Quadruple Anti-Mines:</td><td><input type="number" id="amines4" value=0 /></td></tr>
+        <tr><td>Clue Neighborhood:</td><td><table id="cluehood"></table></td></tr>
+        <tr><td>Clue Neighborhood Presets:</td><td id="cluehoodpresets"></td></tr>
+        <tr><td>Horizontal Wrapping:</td><td>
+            <label for="wraphnone">None</label>
+            <input type="radio" name="wraph" id="wraphnone" checked />
+            <label for="wraphnorm">Normal</label>
+            <input type="radio" name="wraph" id="wraphnorm" />
+            <label for="wraphinv">Inverted</label>
+            <input type="radio" name="wraph" id="wraphinv" />
+        </td></tr>
+        <tr><td>Vertical Wrapping:</td><td>
+            <label for="wrapvnone">None</label>
+            <input type="radio" name="wrapv" id="wrapvnone" checked />
+            <label for="wrapvnorm">Normal</label>
+            <input type="radio" name="wrapv" id="wrapvnorm" />
+            <label for="wrapvinv">Inverted</label>
+            <input type="radio" name="wrapv" id="wrapvinv" />
+        </td></tr>
+        </table></form>
+        <script src="script.js"></script>
+    </body>
+</html>
